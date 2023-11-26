@@ -104,6 +104,8 @@ export default {
               return this.options(val)[val]
             else
               return this.options[val]
+          case 'img':
+            return val
           default:
             return val
         }
@@ -195,6 +197,8 @@ export default {
           break
         case 'string':
           break
+        case 'img':
+          break;
         default:
           throw new Error('VueExcelColumn: Not supported type:' + this.type)
       }
