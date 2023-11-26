@@ -123,7 +123,12 @@
                   :key="p"
                   :style="Object.assign(cellStyle(record, item), renderColumnCellStyle(item))"
                   @mouseover="cellMouseOver"
-                  @mousemove="cellMouseMove">{{ item.toText(record[item.name]) }}</td>
+                  @mousemove="cellMouseMove">
+                  <img v-if="item.style === 'img'" :src="record[item.item.name]" />
+                  <span v-else>
+                    {{ item.toText(record[item.name]) }}
+                  </span>
+              </td>
               <td v-if="vScroller.buttonHeight < vScroller.height" class="last-col"></td>
             </tr>
           </tbody>
